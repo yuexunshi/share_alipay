@@ -1,10 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jarvismedical.share_alipay_example">
-   <application
+
+    <queries>
+        <!--   可查询支付宝，并与其交互     -->
+        <package android:name="com.eg.android.AlipayGphone" />
+    </queries>
+    <application
         android:label="share_alipay_example"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

@@ -1,10 +1,10 @@
 package com.jarvismedical.share_alipay
 
 import android.content.Context
+import android.content.Intent
 import androidx.annotation.NonNull
 import com.alipay.share.sdk.openapi.*
 import com.alipay.share.sdk.openapi.SendMessageToZFB.Req
-
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -14,7 +14,8 @@ import com.alipay.share.sdk.openapi.APAPIFactory
 import com.alipay.share.sdk.openapi.IAPApi
 import io.flutter.BuildConfig
 import com.alipay.share.sdk.openapi.APMediaMessage
-
+import com.alipay.share.sdk.openapi.APTextObject
+import androidx.core.content.ContextCompat.startActivity
 
 /** ShareAlipayPlugin */
 class ShareAlipayPlugin : FlutterPlugin, MethodCallHandler {
@@ -25,7 +26,6 @@ class ShareAlipayPlugin : FlutterPlugin, MethodCallHandler {
     private var api: IAPApi? = null
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        println("ShareAlipayPlugin=======onAttachedToEngine")
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "share_alipay")
         applicationContext = flutterPluginBinding.applicationContext
         channel.setMethodCallHandler(this)
@@ -116,6 +116,7 @@ class ShareAlipayPlugin : FlutterPlugin, MethodCallHandler {
      */
     private fun registerAP(call: MethodCall): Boolean {
         val appId = call.argument<String>("appId")
+        print("支付宝分享appId=$appId")
         api = APAPIFactory.createZFBApi(applicationContext, appId, false)
         val support = api?.isZFBSupportAPI ?: false
         if (BuildConfig.DEBUG) {
@@ -133,6 +134,16 @@ class ShareAlipayPlugin : FlutterPlugin, MethodCallHandler {
         if (BuildConfig.DEBUG) {
             print("是否安装支付宝:$isInstalled")
         }
+
+        val shareIntent = Intent()
+        shareIntent.setAction(Intent.ACTION_SEND)
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "text")
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
+        shareIntent.setType("text/plain")
+        val chooserIntent: Intent =
+            Intent.createChooser(shareIntent, null /* dialog title optional */)
+        chooserIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK;
+        applicationContext.startActivity(chooserIntent)
         return isInstalled
     }
 
@@ -144,14 +155,12 @@ class ShareAlipayPlugin : FlutterPlugin, MethodCallHandler {
      *  传参"text":String
      */
     private fun shareText(call: MethodCall): Boolean {
-        //初始化一个APTextObject对象
+//        //初始化一个APTextObject对象
         val textObject = APTextObject()
         textObject.text = call.argument("text")
         //组装分享消息对象
-        //组装分享消息对象
         val mediaMessage = APMediaMessage()
         mediaMessage.mediaObject = textObject
-        //将分享消息对象包装成请求对象
         //将分享消息对象包装成请求对象
         val req = Req()
         req.message = mediaMessage
@@ -233,4 +242,6 @@ class ShareAlipayPlugin : FlutterPlugin, MethodCallHandler {
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
         channel.setMethodCallHandler(null)
     }
+
+
 }
