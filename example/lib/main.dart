@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:share_alipay/share_alipay.dart';
-import 'package:share_plus/share_plus.dart';
+// import 'package:share_plus/share_plus.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
   }
   Future<void> _sharePlusText() async {
     try {
-       await Share.share("text");
+       // await Share.share("text");
       debugPrint('_MyAppState:_shareText: ');
     } on PlatformException {
       _result = false;

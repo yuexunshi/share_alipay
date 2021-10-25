@@ -45,7 +45,7 @@ class ShareAlipay {
       "title": title,
       "desc": desc,
       "webpageUrl": webpageUrl,
-      "imageData": imageData
+      "thumbData": imageData
     });
   }
 
@@ -59,7 +59,7 @@ class ShareAlipay {
       "title": title,
       "desc": desc,
       "webpageUrl": webpageUrl,
-      "imageUrl": imageUrl
+      "thumbUrl": imageUrl
     });
   }
 

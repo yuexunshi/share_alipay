@@ -1,0 +1,29 @@
+PODS:
+  - APOpenSdk (1.1.0)
+  - Flutter (1.0.0)
+  - share_alipay (0.0.1):
+    - APOpenSdk
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - share_alipay (from `.symlinks/plugins/share_alipay/ios`)
+
+SPEC REPOS:
+  trunk:
+    - APOpenSdk
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  share_alipay:
+    :path: ".symlinks/plugins/share_alipay/ios"
+
+SPEC CHECKSUMS:
+  APOpenSdk: e5ced8a7e1bb17ca8c28550211a03a0414179245
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  share_alipay: fc97916996f1328d43c84f7372b1ae41942e9573
+
+PODFILE CHECKSUM: 1d62be80675f50e63eb2f851d55ee75f09951c1b
+
+COCOAPODS: 1.11.2
