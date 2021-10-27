@@ -59,12 +59,8 @@ class ShareAlipay {
       "title": title,
       "desc": desc,
       "webpageUrl": webpageUrl,
-      "thumbUrl": imageUrl
+      "imageUrl": imageUrl
     });
   }
 
-// is Alipay installed
-  static Future<bool?> isAPAppInstalled() async {
-    return await _channel.invokeMethod("isAPAppInstalled");
-  }
 }

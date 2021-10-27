@@ -26,20 +26,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    signingConfigs {
-        debug {
-            storeFile file('/Users/xun/WorkSpace/FlutterProjects/share_alipay/example/android/debug.jks')
-            storePassword 'android'
-            keyAlias 'debug'
-            keyPassword 'android'
-        }
-        release {
-            storeFile file('/Users/xun/WorkSpace/FlutterProjects/share_alipay/example/android/debug.jks')
-            storePassword 'android'
-            keyAlias 'debug'
-            keyPassword 'android'
-        }
-    }
+
     compileSdkVersion 30
 
     compileOptions {
@@ -65,10 +52,8 @@ android {
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
         }
         debug {
-            signingConfig signingConfigs.debug
         }
     }
 
