@@ -47,7 +47,8 @@
 
 - (void)registerApi:(id)arguments result:(FlutterResult)result {
     NSDictionary *info = arguments;
-    [APOpenAPI registerApp:info[@"appId"] withDescription:info[@"appDescription"]];
+    BOOL success = [APOpenAPI registerApp:info[@"appId"] withDescription:info[@"appDescription"]];
+    result(@(success));
 }
 
 - (void)shareText:(id)arguments result:(FlutterResult)result {

@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _registerApi() async {
     try {
-      _result = await ShareAlipay.registerApi("2021002189602304") ?? false;
+      _result = await ShareAlipay.registerApi("2021002188675468") ?? false;
       debugPrint('_MyAppState:_registerApi: ');
     } on PlatformException {
       _result = false;
