@@ -7,18 +7,6 @@
 
 @implementation ShareAlipayPlugin
 
-+ (instancetype)sharedInstance {
-    static dispatch_once_t onceToken;
-    static ShareAlipayPlugin *instance = nil;
-    dispatch_once(&onceToken, ^{
-        instance = [[super allocWithZone:NULL] init];
-    });
-    return instance;
-}
-
-+ (id)allocWithZone:(struct _NSZone *)zone {
-    return [self sharedInstance];
-}
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
     FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"share_alipay" binaryMessenger:registrar.messenger];
