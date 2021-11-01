@@ -134,16 +134,6 @@ class ShareAlipayPlugin : FlutterPlugin, MethodCallHandler {
         if (BuildConfig.DEBUG) {
             print("是否安装支付宝:$isInstalled")
         }
-
-        val shareIntent = Intent()
-        shareIntent.setAction(Intent.ACTION_SEND)
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "text")
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
-        shareIntent.setType("text/plain")
-        val chooserIntent: Intent =
-            Intent.createChooser(shareIntent, null /* dialog title optional */)
-        chooserIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK;
-        applicationContext.startActivity(chooserIntent)
         return isInstalled
     }
 
@@ -223,9 +213,9 @@ class ShareAlipayPlugin : FlutterPlugin, MethodCallHandler {
         webMessage.description = call.argument("desc")
         webMessage.mediaObject = webPageObject
         if (call.method == "shareWebData") {
-            webMessage.thumbData = call.argument("imageData")
+            webMessage.thumbData = call.argument("thumbData")
         } else {
-            webMessage.thumbUrl = call.argument("imageUrl")
+            webMessage.thumbUrl = call.argument("thumbUrl")
         }
         val webReq = Req()
         webReq.message = webMessage

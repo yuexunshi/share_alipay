@@ -107,7 +107,7 @@ class _MyAppState extends State<MyApp> {
               title: '美女',
               desc: '特别美',
               webpageUrl: "www.baidu.com",
-              imageData: asUint8List) ??
+          thumbData: asUint8List) ??
           false;
       debugPrint('_MyAppState:_shareWebWIthImgData: ');
     } on PlatformException {
@@ -124,7 +124,7 @@ class _MyAppState extends State<MyApp> {
               title: '美女',
               desc: '特别美',
               webpageUrl: "www.baidu.com",
-              imageUrl:
+          thumbUrl:
                   'https://img2.woyaogexing.com/2021/10/04/233e3a6cf733477c9adcfc1fb66de760!400x400.jpeg') ??
           false;
       debugPrint('_MyAppState:_shareWebWithImgUrl: ');
@@ -146,7 +146,7 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Text('是否成功：$_result'),
-            TextButton(onPressed: _sharePlusText, child: const Text('原生分享')),
+            // TextButton(onPressed: _sharePlusText, child: const Text('原生分享')),
             TextButton(onPressed: _registerApi, child: const Text('注册')),
             TextButton(onPressed: _isAppInstalled, child: const Text('是否安装')),
             TextButton(onPressed: _shareText, child: const Text('分享文本')),
