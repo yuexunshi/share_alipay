@@ -27,12 +27,12 @@ class ShareAlipay {
   }
 
 // Share Image
-  static Future<bool?> shareImageData(Uint8List data) async {
-    return await _channel.invokeMethod("shareImageData", {"imageData": data});
+  static Future<bool?> shareImageData(Uint8List imageData) async {
+    return await _channel.invokeMethod("shareImageData", {"imageData": imageData});
   }
 
-  static Future<bool?> shareImageUrl(String url) async {
-    return await _channel.invokeMethod("shareImageUrl", {"imageUrl": url});
+  static Future<bool?> shareImageUrl(String imageUrl) async {
+    return await _channel.invokeMethod("shareImageUrl", {"imageUrl": imageUrl});
   }
 
 // Share Web with imageData
