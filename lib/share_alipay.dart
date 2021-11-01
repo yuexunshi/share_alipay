@@ -40,12 +40,12 @@ class ShareAlipay {
       {String title = '',
       String desc = '',
       required String webpageUrl,
-      required Uint8List imageData}) async {
+      required Uint8List thumbData}) async {
     return await _channel.invokeMethod("shareWebData", {
       "title": title,
       "desc": desc,
       "webpageUrl": webpageUrl,
-      "thumbData": imageData
+      "thumbData": thumbData
     });
   }
 
@@ -54,12 +54,12 @@ class ShareAlipay {
       {String title = '',
       String desc = '',
       required String webpageUrl,
-      required String imageUrl}) async {
+      required String thumbUrl}) async {
     return await _channel.invokeMethod("shareWebUrl", {
       "title": title,
       "desc": desc,
       "webpageUrl": webpageUrl,
-      "imageUrl": imageUrl
+      "thumbUrl": thumbUrl
     });
   }
 

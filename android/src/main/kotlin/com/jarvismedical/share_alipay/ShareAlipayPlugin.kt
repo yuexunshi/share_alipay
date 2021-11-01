@@ -223,9 +223,9 @@ class ShareAlipayPlugin : FlutterPlugin, MethodCallHandler {
         webMessage.description = call.argument("desc")
         webMessage.mediaObject = webPageObject
         if (call.method == "shareWebData") {
-            webMessage.thumbData = call.argument("imageData")
+            webMessage.thumbData = call.argument("thumbData")
         } else {
-            webMessage.thumbUrl = call.argument("imageUrl")
+            webMessage.thumbUrl = call.argument("thumbUrl")
         }
         val webReq = Req()
         webReq.message = webMessage

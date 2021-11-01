@@ -107,7 +107,7 @@ class _MyAppState extends State<MyApp> {
               title: '美女',
               desc: '特别美',
               webpageUrl: "www.baidu.com",
-              imageData: asUint8List) ??
+          thumbData: asUint8List) ??
           false;
       debugPrint('_MyAppState:_shareWebWIthImgData: ');
     } on PlatformException {
@@ -124,7 +124,7 @@ class _MyAppState extends State<MyApp> {
               title: '美女',
               desc: '特别美',
               webpageUrl: "www.baidu.com",
-              imageUrl:
+          thumbUrl:
                   'https://img2.woyaogexing.com/2021/10/04/233e3a6cf733477c9adcfc1fb66de760!400x400.jpeg') ??
           false;
       debugPrint('_MyAppState:_shareWebWithImgUrl: ');
