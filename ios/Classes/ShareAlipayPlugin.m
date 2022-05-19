@@ -98,7 +98,7 @@
        APShareImageObject *imgObj = [[APShareImageObject alloc] init];
 
         FlutterStandardTypedData *data = arguments[@"imageData"];
- 
+
        //图片也可使用imageData字段分享本地UIImage类型图片，必须填充有效的image NSData类型数据，否则无法正常分享
     imgObj.imageData = data.data;
     //  回填 APMediaMessage 的消息对象

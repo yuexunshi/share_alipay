@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _registerApi() async {
     try {
-      _result = await ShareAlipay.registerApi("2017120500391388") ?? false;
+      _result = await ShareAlipay.registerApi("2021002188675468") ?? false;
       debugPrint('_MyAppState:_registerApi: ');
     } on PlatformException {
       _result = false;
@@ -34,9 +34,10 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
     setState(() {});
   }
+
   Future<void> _sharePlusText() async {
     try {
-       // await Share.share("text");
+      // await Share.share("text");
       debugPrint('_MyAppState:_shareText: ');
     } on PlatformException {
       _result = false;
@@ -107,7 +108,7 @@ class _MyAppState extends State<MyApp> {
               title: '美女',
               desc: '特别美',
               webpageUrl: "www.baidu.com",
-          thumbData: asUint8List) ??
+              thumbData: asUint8List) ??
           false;
       debugPrint('_MyAppState:_shareWebWIthImgData: ');
     } on PlatformException {
@@ -119,18 +120,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _shareWebWithImgUrl() async {
-
-    // all:shareWebUrl arguments:{
-    //   desc = "3M Protemp\U2122 4 \U67aa\U6df7\U578b\U4e34\U65f6\U51a0\U6865\U6811\U8102 \U8865\U5145\U88c5 | A2 3\U76d2";
-    //   thumbUrl = "https://jws-test.oss-cn-beijing.aliyuncs.com//res/product/img/88bc195a8ec516ffff2a175f7ad6939b.jpg?x-oss-process=image/resize,m_pad,h_400,w_400/watermark,image_5pa55a-G5a-G6bq76bq7LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSxQXzEwMA,g_center";
-    //   title = "\U3010\U4f73\U6c83\U601d\U3011[\U4f73\U6c83\U601d\U5ba2\U670d\U6d4b\U8bd5\U533a\U57df][Demo\U533b\U751f4]\U5728\U4f73\U6c83\U601d\U91c7\U8d2d\U4e86\U4e00\U4e9b\U4ea7\U54c1\Uff0c\U8bf7\U5e2e\U4ed6\U4ed8\U4e2a\U6b3e\U5427~";
-    //   webpageUrl = "https://mattest.jwsmed.com/v2/simple/order/detail?ticket=ioO3OL8B";
     try {
       _result = await ShareAlipay.shareWebWithImgUrl(
               title: '美女',
               desc: '特别美',
               webpageUrl: "www.baidu.com",
-          thumbUrl:
+              thumbUrl:
                   'https://img2.woyaogexing.com/2021/10/04/233e3a6cf733477c9adcfc1fb66de760!400x400.jpeg') ??
           false;
       debugPrint('_MyAppState:_shareWebWithImgUrl: ');

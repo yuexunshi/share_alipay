@@ -27,6 +27,14 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
 
+    signingConfigs {
+        debug {
+            storeFile file('/Users/xun/WorkSpace/FlutterProjects/vipmarketjws-plugins/plugins/share_alipay/example/android/keyStore.jks')
+            storePassword 'android'
+            keyAlias 'key'
+            keyPassword 'android'
+        }
+    }
     compileSdkVersion 30
 
     compileOptions {
@@ -52,8 +60,16 @@ android {
     }
     buildTypes {
         release {
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
         debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
     }
 
